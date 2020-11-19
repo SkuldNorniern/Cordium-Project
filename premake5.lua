@@ -39,7 +39,7 @@ workspace "Cordium"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
     targetdir ("bin/%{outputdir}/")
     objdir ("bin-int/%{outputdir}/obj/")
-    group "External"
+    group "Modules"
 
 		filter()
 	group ""
