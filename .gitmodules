@@ -1,3 +1,6 @@
 [submodule "Cordium/Modules/spdlog"]
 	path = Cordium/Modules/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Cordium/Modules/stb"]
+	path = Cordium/Modules/stb
+	url = https://github.com/nothings/stb
