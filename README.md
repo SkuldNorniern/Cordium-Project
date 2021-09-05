@@ -1,3 +1,3 @@
 # Cordium-Engine
 
-need to be work with cordium lang, until than it will be paused 
+need to be work with Nukleus lang, until than it will be paused 
