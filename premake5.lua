@@ -1,51 +1,35 @@
-require 'Scripts/premake-ios'
-require 'Scripts/premake-defines'
-require 'Scripts/premake-common'
-
-root_dir = os.getcwd()
+/include "./Modules/premake/premake-config/solution_items.lua"
 
 workspace "Cordium"
-    startproject "Editor"
+    architecture "x64"
     location "build"
-	architecture "x64"
-	Arch = ""
+    startproject "Editor"
 
-	if _OPTIONS["arch"] then
-		Arch = _OPTIONS["arch"]
-	else
-		Arch = "x64"
-	end
+  	configurations
+  	{
+  	  	"Debug",
+  	    "Release",
+  	    "Dist"
+  	}
 
-	if Arch == "arm" then 
-		architecture "ARM"
-	elseif Arch == "x64" then 
-		architecture "x86_64"
-	elseif Arch == "x86" then
-		architecture "x86"
-	end
+    solution_items
+  	{
+  		".editorconfig"
+  	}
 
-	print("Arch = ", Arch)
-	configurations
-	{
-	  	"Debug",
-	    "Release",
-	    "Dist"
-	}
     flags
     {
         "MultiProcessorCompile"
     }
-    
+
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
-    targetdir ("bin/%{outputdir}/")
-    objdir ("bin-int/%{outputdir}/obj/")
-    group "Modules"
 
-		filter()
-	group ""
+IncludeDir = {}
 
-	include "Cordium/premake5"
-	include "Editor/premake5"
+group "Modules"
+    include "Modules/premake"
+group ""
 
-	filter()
-
+include "Cordium"
+include "Editor"
+include "Sample"

@@ -6,7 +6,9 @@ IncludeDir["spdlog"] = "Modules/spdlog/include"
 project "Cordium"
     kind "StaticLib"
     language "C++"
-    editandcontinue "Off"
+    cppdialect "C++17"
+    staticruntime "on"
+
     files
     {
         "src/**.h",
@@ -169,7 +171,7 @@ filter "system:macosx"
     	"-Wno-nullability-completeness",
 	    "-fdiagnostics-absolute-paths"
 	}
- 
+
 	SetRecommendedXcodeSettings()
 
 pchheader "../Cordium/src/Precompiled.h"
@@ -323,7 +325,7 @@ filter "system:linux"
 
 		defines { "CD_SSE" ,"USE_VMA_ALLOCATOR"}
 	end
- 
+
 filter "system:cordium"
 	cppdialect "C++17"
 	systemversion "latest"
@@ -417,11 +419,3 @@ filter "configurations:Production"
 	symbols "Off"
 	optimize "Full"
 	runtime "Release"
-    
-    
-    
-    
-    
-    
-    
-    
